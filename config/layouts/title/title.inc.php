@@ -20,13 +20,22 @@
 <meta name="twitter:description" content="Full-featured, professional-looking news, editorial and magazine website template.">
 <meta name="twitter:image" content="https://unistudio.co/html/news5/assets/images/common/seo-image.jpg">
 <?php
-if ($_SESSION['Template'] == 'template1') {
-      include "config/layouts/title/title_template1.php";
-} elseif ($_SESSION['Template'] == 'template2') {
-      include "config/layouts/title/title_template2.php";
-} elseif ($_SESSION['Template'] == 'template3') {
-      include "config/layouts/title/title_template3.php";
+$template = $_SESSION['Template'] ?? 'template1'; // Default fallback
+
+if ($template == 'template1') {
+      $titleFile = "config/layouts/title/title_template1.php";
+} elseif ($template == 'template2') {
+      $titleFile = "config/layouts/title/title_template2.php";
+} elseif ($template == 'template3') {
+      $titleFile = "config/layouts/title/title_template3.php";
 } else {
-      echo "<p>Title not found.</p>";
+      $titleFile = "config/layouts/title/title_template1.php"; // Default fallback
+}
+
+if (file_exists($titleFile)) {
+      include $titleFile;
+} else {
+      echo "<!-- Title template file not found: " . htmlspecialchars($titleFile) . " -->";
+      echo "<p>Title template not found for template: " . htmlspecialchars($template) . "</p>";
 }
 ?>

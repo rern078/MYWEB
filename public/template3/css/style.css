@@ -1,0 +1,41 @@
+/* Template 3 Custom Styles */
+body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+}
+
+h1 {
+      color: #333;
+      margin-bottom: 1rem;
+}
+
+p {
+      color: #666;
+      margin-bottom: 1rem;
+}
+
+.social-links a {
+      text-decoration: none;
+}
+
+.social-links a:hover {
+      text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+      .container {
+            padding: 0 10px;
+      }
+
+      .navbar-nav {
+            flex-direction: column;
+      }
+
+      .navbar-nav .nav-link {
+            padding: 0.5rem 0;
+      }
+}
